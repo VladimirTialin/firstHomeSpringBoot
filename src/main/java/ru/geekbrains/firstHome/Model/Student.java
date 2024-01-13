@@ -1,4 +1,4 @@
-package ru.geekbrains.firstHome;
+package ru.geekbrains.firstHome.Model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import lombok.Data;

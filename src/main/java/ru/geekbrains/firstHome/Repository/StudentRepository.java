@@ -1,6 +1,7 @@
-package ru.geekbrains.firstHome;
+package ru.geekbrains.firstHome.Repository;
 
 import org.springframework.stereotype.Component;
+import ru.geekbrains.firstHome.Model.Student;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,14 +43,12 @@ public class StudentRepository {
                 .orElse(null);
     }
 
-    public Student getGroupName(String groupName) {
+    public List<Student> getGroupName(String groupName) {
         return students.stream()
-                .filter(it -> Objects.equals(it.getGroupName(), groupName))
-                .findFirst()
-                .orElse(null);
+                .filter(it -> Objects.equals(it.getGroupName(), groupName)).toList();
     }
-    public boolean addStudent(String name, String groupName) {
-        return students.add(new Student(name,groupName));
+    public boolean addStudent(Student student) {
+       return students.add(student);
     }
     public boolean remove(long id) {
         return students.removeIf(it ->it.getId()==id);
